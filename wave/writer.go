@@ -90,7 +90,30 @@ func int32ToBytes(i int) []byte {
 	return b
 }
 
-func FramesToData(frames []Frame, wfmt WaveFmt) (WaveData, []byte) {
+func framesToData(frames []Frame, wfmt WaveFmt) (WaveData, []byte) {
+	b := []byte{}
+	raw := samplesToRawData(frames, wfmt)
+
+	// We receive frames but have to store the size of the samples
+	// The size of the samples is frames / channels..
+	subchunksize := (len(frames) * wfmt.NumChannels * wfmt.BitsPerSample) / 8
+	subBytes := int32ToBytes(subchunksize)
+
+	// construct the data part..
+	b = append(b, Subchunk2ID...)
+	b = append(b, subBytes...)
+	b = append(b, raw...)
+
+	wd := WaveData{
+		Subchunk2ID:   Subchunk2ID,
+		Subchunk2Size: subchunksize,
+		RawData:       raw,
+		Frames:        frames,
+	}
+	return wd, b
+}
+
+func FramesToDataStreaming(frames []Frame, wfmt WaveFmt) (WaveData, []byte) {
 	b := []byte{}
 	raw := samplesToRawData(frames, wfmt)
 
