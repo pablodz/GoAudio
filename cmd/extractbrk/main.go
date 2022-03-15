@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	wav "github.com/DylanMeeus/GoAudio/wave"
+	wav "github.com/pablodz/GoAudio/wave"
 )
 
 // program to extract breakpoint data from an input source.

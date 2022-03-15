@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 
-	synth "github.com/DylanMeeus/GoAudio/synthesizer"
-	"github.com/DylanMeeus/GoAudio/wave"
+	synth "github.com/pablodz/GoAudio/synthesizer"
+	"github.com/pablodz/GoAudio/wave"
 )
 
 func main() {

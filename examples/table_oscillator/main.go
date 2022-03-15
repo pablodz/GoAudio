@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"flag"
 	"fmt"
-	"github.com/DylanMeeus/GoAudio/breakpoint"
-	synth "github.com/DylanMeeus/GoAudio/synthesizer"
-	"github.com/DylanMeeus/GoAudio/wave"
 	"io/ioutil"
+
+	"github.com/pablodz/GoAudio/breakpoint"
+	synth "github.com/pablodz/GoAudio/synthesizer"
+	"github.com/pablodz/GoAudio/wave"
 )
 
 var stringToShape = map[string]synth.Shape{

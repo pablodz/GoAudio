@@ -3,7 +3,7 @@ package synthesizer_test
 import (
 	"testing"
 
-	synth "github.com/DylanMeeus/GoAudio/synthesizer"
+	synth "github.com/pablodz/GoAudio/synthesizer"
 )
 
 var (

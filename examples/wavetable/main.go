@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	synth "github.com/DylanMeeus/GoAudio/synthesizer"
-	"github.com/DylanMeeus/GoAudio/wave"
+
+	synth "github.com/pablodz/GoAudio/synthesizer"
+	"github.com/pablodz/GoAudio/wave"
 )
 
 // example use of the oscillator to generate different waveforms

@@ -7,9 +7,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/DylanMeeus/GoAudio/wave"
-	wav "github.com/DylanMeeus/GoAudio/wave"
 	"strings"
+
+	"github.com/pablodz/GoAudio/wave"
+	wav "github.com/pablodz/GoAudio/wave"
 )
 
 var (

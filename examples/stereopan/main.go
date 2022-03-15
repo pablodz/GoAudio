@@ -3,10 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	brk "github.com/DylanMeeus/GoAudio/breakpoint"
-	wav "github.com/DylanMeeus/GoAudio/wave"
 	"math"
 	"os"
+
+	brk "github.com/pablodz/GoAudio/breakpoint"
+	wav "github.com/pablodz/GoAudio/wave"
 )
 
 var (
