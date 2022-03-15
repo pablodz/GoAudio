@@ -46,6 +46,36 @@ func WriteFrames(samples []Frame, wfmt WaveFmt, file string) error {
 	return ioutil.WriteFile(file, bits, 0644)
 }
 
+func WriteFramesStreaming(samples []Frame, wfmt WaveFmt) ([]byte, []byte, []byte) {
+	// write chunkSize
+
+	hdr := createHeaderStreaming(8000)         // 1 second of data
+	wfb := fmtToBytes(wfmt)                    // convert
+	_, databits := framesToData(samples, wfmt) // append the data
+
+	// bits := []byte{}
+	// bits = append(bits, hdr...)
+	// bits = append(bits, wfb...)
+	// bits = append(bits, databits...)
+
+	return hdr, wfb, databits
+
+	// return ioutil.WriteFile(file, bits, 0644)
+}
+
+// turn the sample to a valid header
+func createHeaderStreaming(chunkSize2D int) (bits []byte) {
+
+	chunksize := 36 + chunkSize2D
+	cb := int32ToBytes(chunksize)
+
+	bits = append(bits, ChunkID...) // in theory switch on endianness..
+	bits = append(bits, cb...)
+	bits = append(bits, WaveID...)
+
+	return bits
+}
+
 func int16ToBytes(i int) []byte {
 	b := make([]byte, 2)
 	in := uint16(i)
