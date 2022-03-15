@@ -90,7 +90,7 @@ func int32ToBytes(i int) []byte {
 	return b
 }
 
-func framesToData(frames []Frame, wfmt WaveFmt) (WaveData, []byte) {
+func FramesToData(frames []Frame, wfmt WaveFmt) (WaveData, []byte) {
 	b := []byte{}
 	raw := samplesToRawData(frames, wfmt)
 
