@@ -46,10 +46,10 @@ func WriteFrames(samples []Frame, wfmt WaveFmt, file string) error {
 	return ioutil.WriteFile(file, bits, 0644)
 }
 
-func WriteFramesStreaming(samples []Frame, wfmt WaveFmt) ([]byte, []byte, []byte) {
+func WriteFramesStreaming(samples []Frame, wfmt WaveFmt, chunkSizeMax int) ([]byte, []byte, []byte) {
 	// write chunkSize
 
-	hdr := createHeaderStreaming(8000)         // 1 second of data
+	hdr := createHeaderStreaming(chunkSizeMax) // 1 second of data
 	wfb := fmtToBytes(wfmt)                    // convert
 	_, databits := framesToData(samples, wfmt) // append the data
 
